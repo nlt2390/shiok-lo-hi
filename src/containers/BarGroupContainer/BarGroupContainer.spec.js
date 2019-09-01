@@ -1,25 +1,26 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import sinon from 'sinon';
 import { BarGroupContainer } from './BarGroupContainer';
 
-const renderPostListContainer = (props = {}) => {
+const renderBarGroupContainer = (props = {}) => {
   return (
-    <PostListContainer
-      fetchPosts={() => null}
-      {...props}
+    <BarGroupContainer
+      { ...props }
     />
   );
 };
 
-const shallowPostListContainer = (props = {}) => shallow(renderPostListContainer(props));
+const mountBarGroupContainer = (props = {}) => mount(renderBarGroupContainer(props));
 
-describe('<PostListContainer>', () => {
-  it('Should fetch posts after mounting', () => {
-    const fetchPosts = sinon.spy();
+describe('<BarGroupContainer>', () => {
+  it('Should fetch bar data after mounting', () => {
+    const fetchBarData = sinon.spy();
 
-    shallowPostListContainer({
-      fetchPosts,
+    mountBarGroupContainer({
+      fetchBarData,
     });
+
+    expect(fetchBarData.calledOnce).toBe(true);
   });
 });

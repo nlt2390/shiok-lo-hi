@@ -6,7 +6,7 @@ import MainLayout from './layouts/mainLayout';
 
 const App = ({ store }) => {
   return (
-    <Provider store={store}>
+    <Provider store={ store }>
       <MainLayout />
     </Provider>
   );

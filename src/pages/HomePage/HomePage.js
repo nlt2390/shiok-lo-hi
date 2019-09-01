@@ -3,17 +3,16 @@ import PropTypes from 'prop-types';
 import styles from './HomePage.styles';
 
 import {
-  BarGroupContainer
+  BarGroupContainer,
 } from '../../containers';
 
 const HomePage = () => {
   return (
-    <div css={styles.container}>
+    <div css={ styles.container }>
       <BarGroupContainer />
     </div>
   );
-  
-}
+};
 
 HomePage.propTypes = {
   history: PropTypes.shape({}).isRequired,

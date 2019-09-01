@@ -1,9 +1,13 @@
 import * as types from './types';
 
 const initState = {
-  buttons: [],
-  bars: [],
-  limit: 0,
+  apiResponse: {
+    buttons: [],
+    bars: [],
+    limit: 0,
+  },
+  displayBars: [],
+  displayButtons: [],
 };
 
 export default function post(state = initState, action) {
@@ -12,10 +16,26 @@ export default function post(state = initState, action) {
       const {
         barData,
       } = action.payload;
+      const {
+        bars,
+        buttons,
+      } = barData;
 
       return {
         ...state,
-        ...barData,
+        apiResponse: barData,
+        displayBars: bars.map((bar, i) => {
+          return {
+            id: i + 1,
+            value: bar,
+          };
+        }),
+        displayButtons: buttons.map((button, i) => {
+          return {
+            id: i + 1,
+            value: button,
+          };
+        }),
       };
 
     default:

@@ -15,7 +15,6 @@ export const BarGroupContainer = (props) => {
   const {
     fetchBarData,
     bars,
-    limit,
   } = props;
 
   useEffect(() => {
@@ -25,27 +24,32 @@ export const BarGroupContainer = (props) => {
   return bars.map((bar) => {
     return (
       <Bar
-        value={ bar }
-        limit={ limit }
+        key={ bar.id }
+        percentage={ bar.percentage }
+        isOverLimit={ bar.isOverLimit }
+        value={ bar.value }
       />
     );
   });
 };
 
 BarGroupContainer.propTypes = {
-  bars: PropTypes.arrayOf(PropTypes.number),
-  fetchBarData: PropTypes.func.isRequired,
-  limit: PropTypes.number,
+  bars: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number,
+    value: PropTypes.number,
+    percentage: PropTypes.number,
+    isOverLimit: PropTypes.bool,
+  })),
+  fetchBarData: PropTypes.func,
 };
 
 BarGroupContainer.defaultProps = {
   bars: [],
-  limit: 0,
+  fetchBarData: () => null,
 };
 
 const mapStateToProps = (state) => ({
-  bars: barSelectors.selectorBarBars(state),
-  limit: barSelectors.selectorBarLimit(state),
+  bars: barSelectors.selectorPercentageBars(state),
 });
 
 const mapDispatchToProps = (dispatch) => {

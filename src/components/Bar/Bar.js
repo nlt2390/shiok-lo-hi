@@ -5,26 +5,33 @@ import styles from './Bar.styles';
 
 const Bar = (props) => {
   const {
+    percentage,
+    isOverLimit,
     value,
-    limit,
   } = props;
 
   return (
     <div css={ styles.container }>
-      <div css={ styles.barFill } />
-      <div css={ styles.label } />
+      <div
+        css={ styles.getBarFillCss({ isOverLimit, percentage }) }
+      />
+      <div css={ styles.label }>
+        {value}
+      </div>
     </div>
   );
 };
 
 Bar.propTypes = {
+  percentage: PropTypes.number,
+  isOverLimit: PropTypes.bool,
   value: PropTypes.number,
-  limit: PropTypes.number,
 };
 
 Bar.defaultProps = {
+  percentage: 0,
+  isOverLimit: false,
   value: 0,
-  limit: 0,
 };
 
 export default Bar;

@@ -15,10 +15,10 @@ const history = createBrowserHistory();
 
 const MainLayout = () => {
   return (
-    <Router history={history}>
+    <Router history={ history }>
       <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route component={Error404Page} />
+        <Route exact path="/" component={ HomePage } />
+        <Route component={ Error404Page } />
       </Switch>
     </Router>
   );

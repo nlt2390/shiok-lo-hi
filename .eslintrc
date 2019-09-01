@@ -20,6 +20,7 @@
   "globals": {
     "fetch": "readonly",
     "describe": "readonly",
-    "it": "readonly"
+    "it": "readonly",
+    "expect": "readonly"
   }
 }
