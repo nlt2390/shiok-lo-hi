@@ -12,5 +12,5 @@ export const getBarPercentage = ({ value = 0, limit = 1 }) => {
 export const getAppendedValue = ({ value, appendValue }) => {
   const newValue = value + appendValue;
 
-  return newValue > 0 ? newValue : 0;
+  return Math.max(newValue, 0);
 };
