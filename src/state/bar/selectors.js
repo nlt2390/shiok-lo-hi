@@ -32,3 +32,16 @@ export const selectorPercentageBars = createSelector(
     });
   },
 );
+
+export const selectorBarOptions = createSelector(
+  [selectorDisplayBars],
+  (bars) => {
+    return bars.map((bar) => {
+      return {
+        id: bar.id,
+        label: `#progress${bar.id}`,
+        value: bar.id,
+      };
+    });
+  },
+);

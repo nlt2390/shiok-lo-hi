@@ -8,3 +8,9 @@ export const getBarPercentage = ({ value = 0, limit = 1 }) => {
   }
   return Math.round(percentage);
 };
+
+export const getAppendedValue = ({ value, appendValue }) => {
+  const newValue = value + appendValue;
+
+  return newValue > 0 ? newValue : 0;
+};

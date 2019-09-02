@@ -1,5 +1,9 @@
 import * as types from './types';
 
+import {
+  getAppendedValue,
+} from './helper';
+
 const initState = {
   apiResponse: {
     buttons: [],
@@ -10,7 +14,7 @@ const initState = {
   displayButtons: [],
 };
 
-export default function post(state = initState, action) {
+export default function barReducer(state = initState, action) {
   switch (action.type) {
     case types.FETCH_SUCCESS:
       const {
@@ -36,6 +40,29 @@ export default function post(state = initState, action) {
             value: button,
           };
         }),
+      };
+
+    case types.SET:
+      const {
+        barId,
+        appendValue,
+      } = action.payload;
+
+      const newDisplayBars = state.displayBars.map((bar) => {
+        if (bar.id === barId) {
+          const value = getAppendedValue({ value: bar.value, appendValue });
+
+          return {
+            ...bar,
+            value,
+          };
+        }
+        return bar;
+      });
+
+      return {
+        ...state,
+        displayBars: newDisplayBars,
       };
 
     default:

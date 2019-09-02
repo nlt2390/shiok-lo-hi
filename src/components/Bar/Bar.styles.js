@@ -10,7 +10,7 @@ export default {
     border: 1px solid rgb(228, 231, 234);
   `,
   getBarFillCss: ({ isOverLimit, percentage }) => css`
-    background-color: ${isOverLimit ? '#f86c6b' : '#63c2de'};
+    background-color: ${isOverLimit ? '#f86c6b' : '#68e292'};
     position: absolute;
     left: 0;
     top: 0;

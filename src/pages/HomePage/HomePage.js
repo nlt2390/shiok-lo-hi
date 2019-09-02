@@ -4,12 +4,14 @@ import styles from './HomePage.styles';
 
 import {
   BarGroupContainer,
+  ButtonGroupContainer,
 } from '../../containers';
 
 const HomePage = () => {
   return (
     <div css={ styles.container }>
       <BarGroupContainer />
+      <ButtonGroupContainer />
     </div>
   );
 };

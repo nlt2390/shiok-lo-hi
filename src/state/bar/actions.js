@@ -18,6 +18,14 @@ export const actionFetchBarDataSuccess = (barData) => ({
   },
 });
 
+export const actionSetBarData = ({ barId, appendValue = 0 }) => ({
+  type: types.SET,
+  payload: {
+    barId,
+    appendValue,
+  },
+});
+
 export function* fetchBarData() {
   const { response, error } = yield call(() => API.get('bars'));
   if (response) {
